@@ -5,7 +5,7 @@ package com.example.armin.calculator;
  */
 
 public enum Operation {
-    NONE(""), ADD("+"), SUBSTRACT("-");
+    NONE(""), ADD("+"), SUBSTRACT("-"), MULTIPLY("*"), DIVIDE("/");
 
     private final String key;
 

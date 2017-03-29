@@ -68,7 +68,15 @@ public class CalculatorActivity extends AppCompatActivity {
                 break;
             case "-":
             case "+":
+            case "*":
+            case "/":
                 operacjeKalkulatora(key);
+                break;
+            case "SQRT(X)":
+                pierwiastkowanie();
+                break;
+            case "x^2":
+                podnoszenieDoKwadratu();
                 break;
             case "=":
                 Wynik();
@@ -82,6 +90,16 @@ public class CalculatorActivity extends AppCompatActivity {
         }
 
         UpdateDisplay();
+    }
+
+    private void podnoszenieDoKwadratu() {
+        double kwadrat = Double.parseDouble(display);
+        displayResult(kwadrat*kwadrat);
+    }
+
+    private void pierwiastkowanie() {
+        double pierwiastek = Double.parseDouble(display);
+        displayResult(Math.sqrt(pierwiastek));
     }
 
     private void UpdateDisplay() {
@@ -110,6 +128,12 @@ public class CalculatorActivity extends AppCompatActivity {
                 break;
             case SUBSTRACT:
                 displayResult(akumuator - drugaLiczba);
+                break;
+            case MULTIPLY:
+                displayResult(akumuator * drugaLiczba);
+                break;
+            case DIVIDE:
+                displayResult(akumuator / drugaLiczba);
                 break;
         }
         akumuator = 0.0;
