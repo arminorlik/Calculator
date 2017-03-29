@@ -8,20 +8,41 @@ import android.widget.TextView;
 
 public class CalculatorActivity extends AppCompatActivity {
 
+    public static final String DISPLAY_KLUCZ = "display";
+    public static final String AKUMULATOR_KLUCZ = "Akumulator_Klucz";
+    public static final String OPERACJA_KLUCZ = "Operacja_Klucz";
     private String display = "0";
     private double akumuator = 0.0;
     private Operation currentOperation = Operation.NONE;
+    private TextView displayText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
+        displayText = (TextView) findViewById(R.id.Textview);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString(DISPLAY_KLUCZ, display);
+        outState.putDouble(AKUMULATOR_KLUCZ, akumuator);
+        outState.putString(OPERACJA_KLUCZ, currentOperation.name());
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        display = savedInstanceState.getString(DISPLAY_KLUCZ, "0"); //jeśli nic nie przywroci, domyślnie wpisze 0
+        akumuator = savedInstanceState.getDouble(AKUMULATOR_KLUCZ);
+        currentOperation = Operation.valueOf(savedInstanceState.getString(OPERACJA_KLUCZ ));
+        UpdateDisplay();
     }
 
     public void WybranyPrzycisk(View view) {
         Button button = (Button) view;
         String key = button.getText().toString();
-        TextView displayText = (TextView) findViewById(R.id.Textview);
 
         switch (key) {
             case "0":
@@ -41,7 +62,7 @@ public class CalculatorActivity extends AppCompatActivity {
                 display = display + key;
                 break;
             case ".":
-                if(!display.contains(".")){
+                if (!display.contains(".")) {
                     display = display + key;
                 }
                 break;
@@ -60,6 +81,10 @@ public class CalculatorActivity extends AppCompatActivity {
                 break;
         }
 
+        UpdateDisplay();
+    }
+
+    private void UpdateDisplay() {
         displayText.setText(display);
     }
 
@@ -67,13 +92,12 @@ public class CalculatorActivity extends AppCompatActivity {
         display = "0";
         akumuator = 0.0;
         currentOperation = Operation.NONE;
-
     }
 
     private void czyscJedenZnak() {
-        if (display.length() > 1){
-            display = display.substring(0, display.length() -1);
-        }else{
+        if (display.length() > 1) {
+            display = display.substring(0, display.length() - 1);
+        } else {
             display = "0";
         }
     }
