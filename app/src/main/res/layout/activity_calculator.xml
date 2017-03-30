@@ -5,16 +5,7 @@
 
     <TextView
         android:id="@+id/Textview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/TL"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:ems="10"
-        android:gravity="center_vertical|end"
-        android:inputType="textPersonName"
-        android:text="0"/>
+        style="@style/Display_Style"/>
 
     <TableLayout
         android:id="@+id/TL"
@@ -33,22 +24,22 @@
             <Button
                 android:id="@+id/button5"
                 android:text="1"
-                style="@style/StylePlikow"/>
+                style="@style/Key_Style"/>
 
             <Button
                 android:id="@+id/button4"
                 android:text="2"
-                style="@style/StylePlikow"/>
+                style="@style/Key_Style"/>
 
             <Button
                 android:id="@+id/button3"
                 android:text="3"
-                style="@style/StylePlikow"/>
+                style="@style/Key_Style"/>
 
             <Button
                 android:id="@+id/button2"
                 android:text="CE"
-                style="@style/StylePlikow"/>
+                style="@style/Key_Style.Operation"/>
         </TableRow>
 
         <TableRow
@@ -58,22 +49,22 @@
             <Button
                 android:id="@+id/button9"
                 android:text="4"
-                style="@style/StylePlikow"/>
+                style="@style/Key_Style"/>
 
             <Button
                 android:id="@+id/button8"
                 android:text="5"
-                style="@style/StylePlikow"/>
+                style="@style/Key_Style"/>
 
             <Button
                 android:id="@+id/button7"
                 android:text="6"
-                style="@style/StylePlikow"/>
+                style="@style/Key_Style"/>
 
             <Button
                 android:id="@+id/button6"
                 android:text="C"
-                style="@style/StylePlikow"/>
+                style="@style/Key_Style.Operation"/>
         </TableRow>
 
         <TableRow
@@ -83,22 +74,22 @@
             <Button
                 android:id="@+id/button13"
                 android:text="7"
-                style="@style/StylePlikow"/>
+                style="@style/Key_Style"/>
 
             <Button
                 android:id="@+id/button12"
                 android:text="8"
-                style="@style/StylePlikow"/>
+                style="@style/Key_Style"/>
 
             <Button
                 android:id="@+id/button11"
                 android:text="9"
-                style="@style/StylePlikow"/>
+                style="@style/Key_Style"/>
 
             <Button
                 android:id="@+id/button10"
                 android:text="+"
-                style="@style/StylePlikow"/>
+                style="@style/Key_Style.Operation"/>
         </TableRow>
 
         <TableRow
@@ -108,22 +99,22 @@
             <Button
                 android:id="@+id/button17"
                 android:text="."
-                style="@style/StylePlikow"/>
+                style="@style/Key_Style"/>
 
             <Button
                 android:id="@+id/button16"
                 android:text="0"
-                style="@style/StylePlikow"/>
+                style="@style/Key_Style"/>
 
             <Button
                 android:id="@+id/button15"
                 android:text="="
-                style="@style/StylePlikow"/>
+                style="@style/Key_Style"/>
 
             <Button
                 android:id="@+id/button14"
                 android:text="-"
-                style="@style/StylePlikow"/>
+                style="@style/Key_Style.Operation"/>
         </TableRow>
     </TableLayout>
 
